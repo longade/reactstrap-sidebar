@@ -1,15 +1,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavItem, NavLink } from "reactstrap";
 
-const CustomNavItem = (props: any) => {
+const MenuItem = (props: any) => {
 
-    const { icon, title } = props;
+  const { title, icon, sidebarOpened } = props;
 
-    const [showDropdown, setshowDropdown] = React.useState<boolean>(false);
+  const [showDropdown, setshowDropdown] = React.useState<boolean>(false);
 
-    return (
-        <Dropdown
+  return (
+    sidebarOpened ?
+      <NavItem>
+        <NavLink>
+          <FontAwesomeIcon icon={icon} className="mr-2" />
+          {" "}
+          <span>{title}</span>
+        </NavLink>
+      </NavItem>
+      :
+      <Dropdown
         direction="end"
         onMouseEnter={() => setshowDropdown(true)}
         onMouseLeave={() => setshowDropdown(false)}
@@ -29,7 +38,7 @@ const CustomNavItem = (props: any) => {
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
-    );
+  );
 }
 
-export default CustomNavItem;
+export default MenuItem;

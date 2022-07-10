@@ -1,9 +1,18 @@
 import React from "react";
 import './sidebar.scss';
-import SidebarOpened from "./opened/sidebar-opened";
-import SidebarCollapsed from "./collapsed/sidebar-collapsed";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAtom } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAtom,
+  faHome,
+  faBriefcase,
+  faPaperPlane,
+  faQuestion,
+  faImage,
+  faCopy,
+} from "@fortawesome/free-solid-svg-icons";
+import { Nav } from "reactstrap";
+import SubMenu from "./submenu/submenu";
+import MenuItem from "./menu-item/menu-item";
 
 interface SidebarProps {
   isOpen?: boolean,
@@ -47,11 +56,14 @@ const SideBar = (props: SidebarProps) => {
         <h3>Reactstrap Sidebar</h3>
         <FontAwesomeIcon icon={faAtom} />
       </div>
-      {isOpen ?
-        <SidebarOpened submenus={submenus} />
-        :
-        <SidebarCollapsed submenus={submenus} />
-      }
+      <Nav vertical className="list-unstyled components">
+        <SubMenu title="Home" icon={faHome} items={submenus[0]} sidebarOpened={isOpen} />
+        <MenuItem title="About" icon={faBriefcase} sidebarOpened={isOpen} />
+        <SubMenu title="Pages" icon={faCopy} items={submenus[1]} sidebarOpened={isOpen} />
+        <MenuItem title="Portfolio" icon={faImage} sidebarOpened={isOpen} />
+        <MenuItem title="FAQ" icon={faQuestion} sidebarOpened={isOpen} />
+        <MenuItem title="Contact" icon={faPaperPlane} sidebarOpened={isOpen} />
+      </Nav>
     </nav>
   );
 }
