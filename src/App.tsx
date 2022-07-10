@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import SideBar from './components/sidebar/sidebar';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { Button } from 'reactstrap';
+// import { faAlignLeft } from '@fortawesome/free-solid-svg-icons/faAlignLeft';
+import Content from './components/content/content';
 
 function App() {
+
+  const [sidebarOpen, setSidebarOpen] = React.useState(true);
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App wrapper">
+      <SideBar isOpen={sidebarOpen} />
+      <Content sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
     </div>
   );
 }

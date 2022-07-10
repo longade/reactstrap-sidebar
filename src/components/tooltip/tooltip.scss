@@ -1,0 +1,23 @@
+.custom-tooltip {
+    & > .tooltip > .arrow {
+        display: none;
+    }
+}
+
+.custom-tooltip-inner {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    position: absolute;
+    z-index: 1000;
+    min-width: 10rem;
+    margin: 0;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
