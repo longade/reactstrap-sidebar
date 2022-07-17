@@ -6,3 +6,9 @@
 .dropdown-item .nav-link {
     color: black !important;
 }
+
+.dropdown-menu-custom {
+    position: relative !important;
+    inset: unset !important;
+    transform: unset !important;
+}
