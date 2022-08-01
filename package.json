@@ -1,6 +1,7 @@
 {
   "name": "reactstrap-sidebar",
   "version": "0.1.0",
+  "homepage": "https://longade.github.io/reactstrap-sidebar",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -23,6 +24,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -47,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2"
   }
