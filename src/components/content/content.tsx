@@ -21,7 +21,9 @@ const Content = (props: any) => {
           </Button>
         </div>
       </Navbar>
-      <div style={{ height: 300, border: '1px solid black' }}></div>
+      <div style={{ height: 300, border: '1px solid black', padding: 10 }}>
+        {"Some content..."}
+      </div>
     </div>
   );
 }
